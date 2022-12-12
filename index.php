@@ -5,13 +5,13 @@ session_start();
     require __DIR__ . "/vendor/autoload.php";
 
     if(empty($_SESSION["userLogin"])){
-        echo "<h1>Guest</h1>";
+        echo "<h1>Facebook Login</h1>";
 
         $facebook = new \League\OAuth2\Client\Provider\Facebook([
-            'clientId' => '336884148081907',
-            'clientSecret' => 'b5e491f92a5b95d6682e538e1678728c',
-            'redirectUri' => 'https://www.localhost/FacebookLogin/',
-            'graphApiVersion' => 'v11.0',
+            'clientId'          => '{facebook-app-id}',
+            'clientSecret'      => '{facebook-app-secret}',
+            'redirectUri'       => 'https://example.com/callback-url',
+            'graphApiVersion'   => 'v2.10',
         ]);
 
         $authUrl = $facebook->getAuthorizationUrl([
